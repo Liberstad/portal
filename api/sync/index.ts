@@ -7,7 +7,7 @@ const DEV = true;
 
 var done: any = (function wait() { if (!done) setTimeout(wait, 1000) })();
 
-log.info('Blockcore Vault: Sync Service Started.');
+log.info('Portal: Sync Service Started.');
 log.info('Config:');
 log.info(JSON.stringify(config));
 

@@ -1,4 +1,4 @@
-# Blockcore Vault Testing
+# Portal Testing
 
 You can run a multi-vault environment using the docker-compose.yml in this folder.
 

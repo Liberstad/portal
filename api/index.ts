@@ -25,7 +25,7 @@ const path = require('path');
 const bent = require('bent');
 const getJSON = bent('json');
 
-console.log(`Starting Blockcore Vault on port ${process.env.PORT}.`);
+console.log(`Starting Portal on port ${process.env.PORT}.`);
 
 const {
   v1: uuidv1,
@@ -101,14 +101,13 @@ const options = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "Blockcore Vault API",
-      version: "0.0.8",
-      description: "Vault REST API for decentralized identity (DID) and verifiable credentials (VC) storage and retrieval.",
-      termsOfService: "https://github.com/block-core/blockcore-vault",
+      title: "Portal API",
+      version: "0.0.1",
+      description: "Portal REST API.",
+      termsOfService: "https://github.com/Liberstad/portal",
       contact: {
-        name: "Blockcore",
-        url: "https://www.blockcore.net",
-        email: "post@blockcore.net",
+        name: "Liberstad",
+        url: "https://www.liberstad.com"
       },
     },
     components: {
@@ -139,7 +138,7 @@ app.get("/*", (req, res) => {
 });
 
 app.listen(config.port, () => {
-  log.info(`Blockcore Vault @ http://localhost:${config.port}`);
+  log.info(`Portal @ http://localhost:${config.port}`);
 });
 
 var token = PubSub.subscribe('server-created', async (msg: any, data: any) => {
