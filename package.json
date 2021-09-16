@@ -1,0 +1,69 @@
+{
+  "name": "portal-api",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": {
+    "name": "Liberstad",
+    "url": "https://www.liberstad.com"
+  },
+  "description": "Liberstad Membership Portal",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Liberstad/portal.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Liberstad/portal/issues"
+  },
+  "homepage": "https://github.com/Liberstad/portal#readme",
+  "dependencies": {
+    "bent": "7.3.12",
+    "bitcoinjs-lib": "5.2.0",
+    "bs58": "4.0.1",
+    "compression": "1.7.4",
+    "cors": "2.8.5",
+    "cross-fetch": "3.1.4",
+    "did-jwt": "5.6.3",
+    "did-jwt-vc": "2.1.6",
+    "did-resolver": "3.1.0",
+    "express": "4.17.1",
+    "mongodb": "4.1.2",
+    "mongoose": "6.0.6",
+    "pubsub-js": "1.9.3",
+    "swagger-jsdoc": "6.1.0",
+    "swagger-ui-express": "4.1.6",
+    "uuid": "8.3.2",
+    "winston": "3.3.3",
+    "ws": "7.4.6"
+  },
+  "devDependencies": {
+    "@types/bs58": "4.0.1",
+    "@types/express": "4.17.13",
+    "@types/node": "14.14.41",
+    "@types/pubsub-js": "1.8.2",
+    "@types/swagger-jsdoc": "6.0.1",
+    "@types/swagger-ui-express": "4.1.3",
+    "copyfiles": "2.4.1",
+    "nodemon": "2.0.12",
+    "ts-node": "9.1.1",
+    "typescript": "4.3.5"
+  },
+  "scripts": {
+    "pm2-dev": "npm run build && pm2 start app-dev.json --env develop",
+    "pm2-dev-debug": "npm run build && pm2 start app-dev.json --attach --env develop",
+    "pm2-dev-delete": "pm2 delete app-dev.json",
+    "pm2": "npm run build && pm2 start app-prd.json --env production",
+    "pm2-debug": "npm run build && pm2 start app-prd.json --attach --env production",
+    "pm2-stop": "pm2 stop app-prd.json",
+    "pm2-delete": "pm2 delete app-prd.json",
+    "build": "tsc",
+    "start": "node ./build",
+    "dev": "nodemon src/index.ts",
+    "ui:install": "cd ui && npm install",
+    "ui:build": "cd ui && npm run build",
+    "ui:start": "cd ui && npm run start",
+    "ui:copy2": "copyfiles -a -u 2 ui/dist build/ui/",
+    "ui:copy": "copyfiles -V -a -u 2 \"ui/dist/**/*\" build/ui/",
+    "all": "npm run build && npm run ui:build && npm run ui:copy && npm run start",
+    "version": "node -p \"require('./package.json').version\""
+  }
+}
